@@ -9,16 +9,16 @@
 
       <!-- About Section -->
       <div class="footer-section footer-about">
-        <a th:href="@{/}" class="logo">ПРЕМИУМ</a>
+        <a th:href="@{/}" class="logo">Terrace 21</a>
         <p>
-          Мы создаем незабываемые гастрономические впечатления, сочетая
-          изысканную кухню с безупречным сервисом в элегантной атмосфере
-          нашего ресторана.
+          Ми створюємо незабутні гастрономічні враження, поєднуючи
+          вишукану кухню з бездоганним сервісом в елегантній атмосфері
+          нашого ресторану.
         </p>
 
         <!-- Newsletter Subscription -->
         <div class="newsletter">
-          <h4 class="newsletter-title">Подписка на новости</h4>
+          <h4 class="newsletter-title">Підписка на новини</h4>
           <form class="newsletter-form" th:action="@{/newsletter/subscribe}" method="post">
             <input type="email" class="newsletter-input" name="email" placeholder="Ваш email" required>
             <button type="submit" class="newsletter-btn">→</button>
@@ -54,30 +54,29 @@
       <div class="footer-section">
         <h3>Меню</h3>
         <ul class="footer-links">
-          <li><a th:href="@{/menu/breakfast}">Завтрак</a></li>
-          <li><a th:href="@{/menu/lunch}">Обед</a></li>
-          <li><a th:href="@{/menu/dinner}">Ужин</a></li>
+          <li><a th:href="@{/menu/breakfast}">Сніданки</a></li>
+          <li><a th:href="@{/menu/lunch}">Обіди</a></li>
+          <li><a th:href="@{/menu/dinner}">Вечері</a></li>
           <li><a th:href="@{/menu/shisha}">Кальян</a></li>
-          <li><a th:href="@{/events}">События</a></li>
+          <li><a th:href="@{/events}">Події</a></li>
           <li><a th:href="@{/gallery}">Галерея</a></li>
         </ul>
       </div>
 
-      <!-- Contact Info -->
       <div class="footer-section">
-        <h3>Контакты</h3>
+        <h3>Контакти</h3>
         <ul class="contact-info">
           <li>
             <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
-            <span>ул. Центральная, 123<br>Москва, 101000</span>
+            <span>вул. Вірменська, 15<br>Львів Україна, 79000</span>
           </li>
           <li>
             <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
             </svg>
-            <span>+7 (495) 123-45-67</span>
+            <span>+38 (093) 295-12-34</span>
           </li>
           <li>
             <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
@@ -90,18 +89,18 @@
 
       <!-- Working Hours -->
       <div class="footer-section">
-        <h3>Часы работы</h3>
+        <h3>Години роботи</h3>
         <div class="working-hours">
           <div class="day">
-            <span class="day-name">Понедельник - Четверг</span>
+            <span class="day-name">Понеділок - Четвер</span>
             <span class="time">11:00 - 23:00</span>
           </div>
           <div class="day">
-            <span class="day-name">Пятница - Суббота</span>
+            <span class="day-name">П’ятниця - Субота</span>
             <span class="time">11:00 - 01:00</span>
           </div>
           <div class="day">
-            <span class="day-name">Воскресенье</span>
+            <span class="day-name">Неділя</span>
             <span class="time">12:00 - 22:00</span>
           </div>
         </div>
@@ -112,11 +111,11 @@
     <!-- Footer Bottom -->
     <div class="footer-bottom">
       <div class="footer-bottom-left">
-        <p>&copy; 2025 Премиум Ресторан. Все права защищены.</p>
+        <p>&copy; 2025 Преміум Ресторан. Всі права захищені.</p>
       </div>
       <div class="footer-bottom-right">
-        <a th:href="@{/privacy}">Политика конфиденциальности</a>
-        <a th:href="@{/terms}">Условия использования</a>
+        <a th:href="@{/privacy}">Політика конфіденційності</a>
+        <a th:href="@{/terms}">Умови використання</a>
         <a th:href="@{/cookies}">Cookie</a>
       </div>
     </div>

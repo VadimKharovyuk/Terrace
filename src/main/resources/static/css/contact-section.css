@@ -230,39 +230,6 @@
 }
 
 /* ============================================
-   СОЦИАЛЬНЫЕ СЕТИ
-   ============================================ */
-
-.social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text-dark);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    padding: 0.5rem 0;
-}
-
-.social-link:hover {
-    color: var(--accent-gold);
-    transform: translateX(4px);
-}
-
-.social-icon {
-    font-size: 1.1rem;
-    width: 20px;
-    text-align: center;
-}
-
-/* ============================================
    КАРТА
    ============================================ */
 
