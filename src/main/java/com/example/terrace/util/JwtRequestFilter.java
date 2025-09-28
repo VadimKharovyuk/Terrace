@@ -1,6 +1,5 @@
-// JwtRequestFilter.java
-package com.example.terrace.util;
 
+package com.example.terrace.util;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
