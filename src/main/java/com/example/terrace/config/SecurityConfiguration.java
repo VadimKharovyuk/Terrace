@@ -1,5 +1,3 @@
-// РЕШЕНИЕ 1: Упрощенная конфигурация (рекомендуемое)
-// Удаляем AuthenticationProvider и оставляем только UserDetailsService
 
 package com.example.terrace.config;
 
@@ -36,11 +34,21 @@ public class SecurityConfiguration {
                 .cors(AbstractHttpConfigurer::disable)
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**", "/public/**").permitAll()
-                        .requestMatchers("/login", "/register", "/error").permitAll()
+                        // API эндпоинты
+                        .requestMatchers("/api/auth/**").permitAll()
+
+                        // WEB эндпоинты (HTML формы)
+                        .requestMatchers("/login", "/register").permitAll()
+                        .requestMatchers("/", "/home").permitAll()
+
+                        // Статические ресурсы
                         .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/favicon.ico", "/error").permitAll()
+
+                        // Защищенные области
+                        .requestMatchers("/api/admin/**", "/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/dashboard/**").authenticated()
+
                         .anyRequest().authenticated()
                 )
 
@@ -60,5 +68,4 @@ public class SecurityConfiguration {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
-
 }
