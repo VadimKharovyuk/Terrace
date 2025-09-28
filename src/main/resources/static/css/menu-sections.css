@@ -1,0 +1,496 @@
+
+/* CSS Variables для Menu Sections */
+:root {
+    --primary-black: #0a0a0a;
+    --soft-white: #fafafa;
+    --accent-gold: #d4af37;
+    --light-gray: #f5f5f5;
+    --medium-gray: #666;
+    --border-light: #e8e8e8;
+    --text-dark: #333;
+}
+
+/* ============================================
+   ОСНОВНЫЕ СТИЛИ MENU SECTION
+   ============================================ */
+
+.menu-section {
+    background: var(--soft-white);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ============================================
+   MENU ITEM - ОСНОВНАЯ СТРУКТУРА
+   ============================================ */
+
+.menu-item {
+    margin-bottom: 8rem;
+    position: relative;
+}
+
+.menu-item:last-child {
+    margin-bottom: 0;
+}
+
+.menu-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 600px;
+}
+
+/* Обратный порядок для класса reverse */
+.menu-item.reverse .menu-content {
+    grid-template-columns: 1fr 1fr;
+}
+
+.menu-item.reverse .menu-text {
+    order: 2;
+}
+
+.menu-item.reverse .menu-image {
+    order: 1;
+}
+
+/* ============================================
+   ТЕКСТОВАЯ ЧАСТЬ
+   ============================================ */
+
+.menu-text {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.menu-category {
+    display: inline-block;
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.menu-category::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--accent-gold);
+}
+
+.menu-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--primary-black);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.menu-description {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+/* ============================================
+   ОСОБЕННОСТИ МЕНЮ
+   ============================================ */
+
+.menu-highlights {
+    margin-bottom: 2.5rem;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.highlight-item:last-child {
+    margin-bottom: 0;
+}
+
+.highlight-icon {
+    font-size: 1.2rem;
+    margin-right: 12px;
+    width: 24px;
+    text-align: center;
+}
+
+/* ============================================
+   ДЕЙСТВИЯ И КНОПКИ
+   ============================================ */
+
+.menu-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn-menu-primary {
+    background: var(--primary-black);
+    color: var(--soft-white);
+    padding: 16px 32px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid var(--primary-black);
+    display: inline-block;
+}
+
+.btn-menu-primary:hover {
+    background: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: var(--primary-black);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.menu-time {
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* ============================================
+   ИЗОБРАЖЕНИЯ
+   ============================================ */
+
+.menu-image {
+    position: relative;
+    height: 600px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-image:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.16);
+}
+
+.menu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-image:hover img {
+    transform: scale(1.05);
+}
+
+/* ============================================
+   ОВЕРЛЕЙ И BADGE
+   ============================================ */
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0.3) 0%,
+            transparent 50%,
+            rgba(0, 0, 0, 0.1) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 2rem;
+}
+
+.image-badge {
+    background: rgba(250, 250, 250, 0.95);
+    color: var(--primary-black);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.menu-image:hover .image-badge {
+    background: var(--accent-gold);
+    color: var(--primary-black);
+    transform: translateY(-4px);
+}
+
+/* ============================================
+   АНИМАЦИИ
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Применение анимаций */
+.menu-text {
+    animation: fadeInLeft 0.8s ease-out;
+}
+
+.menu-image {
+    animation: fadeInRight 0.8s ease-out 0.2s both;
+}
+
+.menu-item.reverse .menu-text {
+    animation: fadeInRight 0.8s ease-out;
+}
+
+.menu-item.reverse .menu-image {
+    animation: fadeInLeft 0.8s ease-out 0.2s both;
+}
+
+/* ============================================
+   АДАПТИВНЫЙ ДИЗАЙН
+   ============================================ */
+
+/* Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+    .menu-container {
+        padding: 0 1.5rem;
+    }
+
+    .menu-content {
+        gap: 3rem;
+        min-height: 500px;
+    }
+
+    .menu-title {
+        font-size: 3rem;
+    }
+
+    .menu-image {
+        height: 500px;
+    }
+
+    .menu-text {
+        padding: 1.5rem;
+    }
+}
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+    .menu-section {
+        padding: 4rem 0;
+    }
+
+    .menu-container {
+        padding: 0 1rem;
+    }
+
+    .menu-item {
+        margin-bottom: 4rem;
+    }
+
+    .menu-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        min-height: auto;
+    }
+
+    .menu-item.reverse .menu-text,
+    .menu-item.reverse .menu-image {
+        order: initial;
+    }
+
+    .menu-text {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .menu-title {
+        font-size: 2.5rem;
+    }
+
+    .menu-description {
+        margin: 0 auto 2rem;
+        max-width: none;
+    }
+
+    .menu-image {
+        height: 400px;
+        order: -1;
+    }
+
+    .menu-actions {
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn-menu-primary {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .menu-highlights {
+        max-width: 300px;
+        margin: 0 auto 2rem;
+    }
+}
+
+/* Малые мобильные устройства (до 480px) */
+@media (max-width: 480px) {
+    .menu-section {
+        padding: 3rem 0;
+    }
+
+    .menu-container {
+        padding: 0 1rem;
+    }
+
+    .menu-item {
+        margin-bottom: 3rem;
+    }
+
+    .menu-content {
+        gap: 1.5rem;
+    }
+
+    .menu-text {
+        padding: 0.5rem;
+    }
+
+    .menu-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .menu-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .menu-image {
+        height: 300px;
+        border-radius: 16px;
+    }
+
+    .btn-menu-primary {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+    }
+
+    .highlight-item {
+        font-size: 0.9rem;
+    }
+
+    .image-overlay {
+        padding: 1rem;
+    }
+
+    .image-badge {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY (ДОСТУПНОСТЬ)
+   ============================================ */
+
+.btn-menu-primary:focus {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+}
+
+/* Уменьшение анимаций для пользователей с предпочтением reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .menu-text,
+    .menu-image,
+    .menu-item.reverse .menu-text,
+    .menu-item.reverse .menu-image {
+        animation: none;
+    }
+
+    .menu-image,
+    .menu-image img,
+    .btn-menu-primary,
+    .image-badge {
+        transition: none;
+    }
+}
+
+/* ============================================
+   ДОПОЛНИТЕЛЬНЫЕ УТИЛИТЫ
+   ============================================ */
+
+/* Плавная прокрутка к секциям */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Обеспечение правильного отображения emoji */
+.highlight-icon {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+

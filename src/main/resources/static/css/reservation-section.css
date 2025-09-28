@@ -1,0 +1,605 @@
+/* ============================================
+   RESERVATION SECTION CSS
+   Файл: reservation-section.css
+   Описание: Стили для секции бронирования
+   ============================================ */
+
+/* CSS Variables для Reservation Section */
+:root {
+    --primary-black: #0a0a0a;
+    --soft-white: #fafafa;
+    --accent-gold: #d4af37;
+    --light-gray: #f5f5f5;
+    --medium-gray: #666;
+    --border-light: #e8e8e8;
+    --text-dark: #333;
+    --input-border: #ddd;
+    --input-focus: #d4af37;
+    --success-green: #10b981;
+    --error-red: #ef4444;
+}
+
+/* ============================================
+   ОСНОВНЫЕ СТИЛИ RESERVATION SECTION
+   ============================================ */
+
+.reservation-section {
+    background: linear-gradient(135deg, var(--primary-black) 0%, #1a1a1a 100%);
+    color: var(--soft-white);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.reservation-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.bg-pattern {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+            circle at 25% 75%,
+            rgba(212, 175, 55, 0.1) 0%,
+            transparent 50%
+    ), radial-gradient(
+            circle at 75% 25%,
+            rgba(212, 175, 55, 0.05) 0%,
+            transparent 50%
+    );
+    animation: float 20s ease-in-out infinite;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+            45deg,
+            transparent 0%,
+            rgba(212, 175, 55, 0.03) 50%,
+            transparent 100%
+    );
+}
+
+.reservation-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   ЗАГОЛОВОК СЕКЦИИ
+   ============================================ */
+
+.reservation-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.reservation-header {
+    margin-bottom: 3rem;
+}
+
+.reservation-subtitle {
+    display: inline-block;
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.reservation-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--accent-gold);
+}
+
+.reservation-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--soft-white);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.reservation-description {
+    font-size: 1.1rem;
+    color: rgba(250, 250, 250, 0.8);
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   ФОРМА БРОНИРОВАНИЯ
+   ============================================ */
+
+.reservation-form-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.reservation-form {
+    background: rgba(250, 250, 250, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(250, 250, 250, 0.1);
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   ФОРМА - СТРОКИ И ГРУППЫ
+   ============================================ */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    color: var(--soft-white);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   ИНПУТЫ И СЕЛЕКТЫ
+   ============================================ */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: rgba(250, 250, 250, 0.1);
+    border: 1px solid rgba(250, 250, 250, 0.2);
+    border-radius: 12px;
+    padding: 14px 16px;
+    color: var(--soft-white);
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(250, 250, 250, 0.5);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    background: rgba(250, 250, 250, 0.15);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23fafafa' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+    line-height: 1.5;
+}
+
+/* ============================================
+   КНОПКА ОТПРАВКИ
+   ============================================ */
+
+.btn-reservation {
+    width: 100%;
+    background: var(--accent-gold);
+    color: var(--primary-black);
+    border: none;
+    border-radius: 50px;
+    padding: 18px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.btn-reservation:hover {
+    background: #f0c442;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);
+}
+
+.btn-reservation:active {
+    transform: translateY(0);
+}
+
+.btn-reservation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+.btn-reservation:hover::before {
+    left: 100%;
+}
+
+.btn-text {
+    transition: transform 0.3s ease;
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-reservation:hover .btn-text {
+    transform: translateX(-2px);
+}
+
+.btn-reservation:hover .btn-icon {
+    transform: translateX(2px);
+}
+
+/* ============================================
+   БЫСТРЫЙ КОНТАКТ
+   ============================================ */
+
+.quick-contact {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(250, 250, 250, 0.03);
+    border: 1px solid rgba(250, 250, 250, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.contact-text {
+    color: rgba(250, 250, 250, 0.8);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-phone {
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.contact-phone:hover {
+    color: #f0c442;
+    transform: scale(1.05);
+}
+
+.contact-hours {
+    color: rgba(250, 250, 250, 0.6);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* ============================================
+   ОСОБЕННОСТИ СЕРВИСА
+   ============================================ */
+
+.reservation-features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(250, 250, 250, 0.8);
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    background: rgba(250, 250, 250, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(250, 250, 250, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.feature-icon {
+    color: var(--accent-gold);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* ============================================
+   АНИМАЦИИ
+   ============================================ */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reservation-form {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.quick-contact {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.reservation-features {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* ============================================
+   ВАЛИДАЦИЯ ФОРМЫ
+   ============================================ */
+
+.form-group input:invalid:not(:placeholder-shown),
+.form-group select:invalid,
+.form-group textarea:invalid:not(:placeholder-shown) {
+    border-color: var(--error-red);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.form-group input:valid:not(:placeholder-shown),
+.form-group select:valid,
+.form-group textarea:valid:not(:placeholder-shown) {
+    border-color: var(--success-green);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* ============================================
+   АДАПТИВНЫЙ ДИЗАЙН
+   ============================================ */
+
+/* Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+    .reservation-container {
+        padding: 0 1.5rem;
+    }
+
+    .reservation-title {
+        font-size: 2.5rem;
+    }
+
+    .reservation-form {
+        padding: 2rem;
+    }
+}
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+    .reservation-section {
+        padding: 4rem 0;
+    }
+
+    .reservation-container {
+        padding: 0 1rem;
+    }
+
+    .reservation-title {
+        font-size: 2.2rem;
+    }
+
+    .reservation-description {
+        font-size: 1rem;
+    }
+
+    .reservation-form {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .reservation-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .feature-item {
+        justify-content: center;
+    }
+
+    .quick-contact {
+        padding: 1.5rem;
+    }
+
+    .contact-phone {
+        font-size: 1.2rem;
+    }
+}
+
+/* Малые мобильные устройства (до 480px) */
+@media (max-width: 480px) {
+    .reservation-section {
+        padding: 3rem 0;
+    }
+
+    .reservation-header {
+        margin-bottom: 2rem;
+    }
+
+    .reservation-title {
+        font-size: 1.8rem;
+    }
+
+    .reservation-form {
+        padding: 1rem;
+        border-radius: 16px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+
+    .btn-reservation {
+        padding: 16px 24px;
+        font-size: 1rem;
+        border-radius: 40px;
+    }
+
+    .quick-contact {
+        padding: 1rem;
+        border-radius: 16px;
+    }
+
+    .contact-phone {
+        font-size: 1.1rem;
+    }
+
+    .feature-item {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY (ДОСТУПНОСТЬ)
+   ============================================ */
+
+.btn-reservation:focus,
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.contact-phone:focus {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+}
+
+/* Уменьшение анимаций для пользователей с предпочтением reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .bg-pattern {
+        animation: none;
+    }
+
+    .reservation-form,
+    .quick-contact,
+    .reservation-features,
+    .btn-reservation,
+    .contact-phone {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* ============================================
+   КАСТОМИЗАЦИЯ ДЛЯ БРАУЗЕРОВ
+   ============================================ */
+
+/* Chrome, Safari */
+.form-group input::-webkit-outer-spin-button,
+.form-group input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.form-group input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Webkit browsers scrollbar для textarea */
+.form-group textarea::-webkit-scrollbar {
+    width: 4px;
+}
+
+.form-group textarea::-webkit-scrollbar-track {
+    background: rgba(250, 250, 250, 0.1);
+    border-radius: 4px;
+}
+
+.form-group textarea::-webkit-scrollbar-thumb {
+    background: var(--accent-gold);
+    border-radius: 4px;
+}
+
